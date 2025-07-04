@@ -10,6 +10,9 @@ import org.example.model.NonShippableProduct;
 import org.example.model.ExpirableProduct;
 import org.example.model.Product;
 import java.time.LocalDate;
+import org.example.exception.InsufficientBalanceException;
+import org.example.exception.InsufficientBalanceException;
+import org.example.exception.OutOfStockException;
 
 public class ECommereceSystem {
     public static void main(String[] args) {
@@ -24,7 +27,7 @@ public class ECommereceSystem {
              cart.addProduct(phone, 1);              
              cart.addProduct(expiredFood, 1);        
              cart.addProduct(card, 1);
-         }catch(Exception ex){
+         }catch(OutOfStockException |ExpiredProductException ex){
              System.out.println(ex.getMessage());
          }
         Customer customer = new Customer(new BigDecimal("10000")); 
@@ -33,7 +36,7 @@ public class ECommereceSystem {
         
         try {
             checkout.performCheckout();
-        } catch (IllegalStateException ex) {
+        } catch (IllegalStateException | InsufficientBalanceException ex) {
             System.out.println("Checkout failed: " + ex.getMessage());
         }
 
