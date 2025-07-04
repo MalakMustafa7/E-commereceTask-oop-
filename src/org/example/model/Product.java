@@ -1,10 +1,13 @@
- package e.commerecesystem;
+ package org.example.model;
+
+import java.math.BigDecimal;
+
 public abstract class Product {
     private String name;
-    private double price;
+    private  BigDecimal price;
     private int quantity;
-    public Product(String name,double price,int quantity){
-        if (price <= 0) throw new IllegalArgumentException("Price must be positive");
+    public Product(String name,BigDecimal price,int quantity){
+        if (price.compareTo(BigDecimal.ZERO)<=0) throw new IllegalArgumentException("Price must be positive");
         if (quantity < 0) throw new IllegalArgumentException("Quantity cannot be negative"); 
         this.name=name;
         this.price=price;
@@ -15,10 +18,9 @@ public abstract class Product {
         return name;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
-
     public int getQuantity() {
         return quantity;
     }

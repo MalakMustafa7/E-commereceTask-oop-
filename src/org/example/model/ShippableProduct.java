@@ -1,8 +1,13 @@
- package e.commerecesystem;
+ package org.example.model;
+
+import Interface.Shippable;
+import java.math.BigDecimal;
+import org.example.model.Product;
+
 public class ShippableProduct extends Product  implements Shippable {
     double weight;
 
-    public ShippableProduct(String name, double price, int quantity,double weight) {
+    public ShippableProduct(String name, BigDecimal price, int quantity,double weight) {
         super(name, price, quantity);
         if (weight <= 0) throw new IllegalArgumentException("Weight must be positive");
         this.weight=weight;

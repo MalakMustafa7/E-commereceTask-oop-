@@ -1,4 +1,4 @@
- package e.commerecesystem;
+ package Interface;
 
 public interface Shippable {
     public String getName();

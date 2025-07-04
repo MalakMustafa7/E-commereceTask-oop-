@@ -1,13 +1,22 @@
  package e.commerecesystem;
 
+import java.math.BigDecimal;
+import org.example.service.Checkout;
+import org.example.service.ShippingService;
+import org.example.model.Customer;
+import org.example.model.Cart;
+import org.example.model.ShippableProduct;
+import org.example.model.NonShippableProduct;
+import org.example.model.ExpirableProduct;
+import org.example.model.Product;
 import java.time.LocalDate;
 
 public class ECommereceSystem {
     public static void main(String[] args) {
-        Product book = new ShippableProduct("Java Book", 100.0, 10, 1.5);
-        Product phone = new ShippableProduct("Smartphone", 5000.0, 5, 0.5);
-        Product expiredFood = new ExpirableProduct("Milk", 20.0, 3, LocalDate.of(2024, 7, 1));  
-        Product card = new NonShippableProduct("Mobile scratch cards ", 300.0, 2);
+        Product book = new ShippableProduct("Java Book",new BigDecimal("100"), 10, 1.5);
+        Product phone = new ShippableProduct("Smartphone", new BigDecimal("5000"), 5, 0.5);
+        Product expiredFood = new ExpirableProduct("Milk", new BigDecimal("20"), 3, LocalDate.of(2024, 7, 1));  
+        Product card = new NonShippableProduct("Mobile scratch cards ", new BigDecimal("300"), 2);
 
          Cart cart = new Cart();
          try{
@@ -18,7 +27,7 @@ public class ECommereceSystem {
          }catch(Exception ex){
              System.out.println(ex.getMessage());
          }
-        Customer customer = new Customer(10000.0); 
+        Customer customer = new Customer(new BigDecimal("10000")); 
         ShippingService shippingService = new ShippingService();
         Checkout checkout = new Checkout(cart, shippingService, customer);
         

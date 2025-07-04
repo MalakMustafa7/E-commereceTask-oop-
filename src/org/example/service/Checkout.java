@@ -1,6 +1,14 @@
- package e.commerecesystem;
+ package org.example.service;
 
+import org.example.service.ShippingService;
+import Interface.Shippable;
+import java.math.BigDecimal;
+import org.example.model.Customer;
+import org.example.model.CartItem;
+import org.example.model.Cart;
+import org.example.model.Product;
 import java.util.List;
+import org.example.exception.InsufficientBalanceException;
 
 public class Checkout {
     Cart cart;
@@ -19,11 +27,11 @@ public class Checkout {
             throw new IllegalStateException("Cart is empty");
         }
         List<Shippable>items = cart.getShippableItems();
-        double fees = shippingservice.calculateShippingFees(items);
-        double price = cart.getSubtotal();
-        double totalPrice= price+fees;
-        if(customer.getBalance()<totalPrice){
-            throw new IllegalStateException("Insufficient balance: " + customer.getBalance() + " < " + totalPrice);
+        BigDecimal fees = shippingservice.calculateShippingFees(items);
+        BigDecimal price = cart.getSubtotal();
+        BigDecimal totalPrice= price.add(fees);
+        if(customer.getBalance().compareTo(totalPrice) < 0){
+            throw new InsufficientBalanceException("Insufficient balance: " + customer.getBalance() + " < " + totalPrice);
         }
         customer.deductBalance(totalPrice);
         List<CartItem>cartItems = cart.getItems();

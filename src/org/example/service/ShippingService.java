@@ -1,15 +1,19 @@
- package e.commerecesystem;
+ package org.example.service;
 
+import Interface.Shippable;
+import java.math.BigDecimal;
 import java.util.List;
 
 public class ShippingService {
-    public double calculateShippingFees(List<Shippable> items){
+    public BigDecimal calculateShippingFees(List<Shippable> items){
         if(items == null ||items.isEmpty()){
             throw new IllegalStateException("No shippable items found ");
         }
-        double fees=0;
+        BigDecimal fees= BigDecimal.ZERO;
         for(Shippable item:items){
-            fees+=(item.getWeight()*5);
+             BigDecimal weight = BigDecimal.valueOf(item.getWeight());
+             BigDecimal fee = weight.multiply(BigDecimal.valueOf(5));  
+             fees = fees.add(fee);
         }
         return fees;
     }
