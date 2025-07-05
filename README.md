@@ -57,10 +57,5 @@ The system simulates basic shopping flow including product definition, cart hand
 - Shipping fees are calculated as: `weight × 5`.
 - Designed with separation of concerns using packages.
 
-Customer Balance After Payment: $2400.0
-
-##Notes
-- The app doesn't use a database, products are initialized directly in code.
-- Shipping fees are calculated as: `weight × 5`.
-- Designed with separation of concerns using packages.
+ 
   
