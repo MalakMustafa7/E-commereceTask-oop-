@@ -1,7 +1,7 @@
  package org.example.model;
 
 import java.math.BigDecimal;
-import org.example.exception.InsufficientBalanceException;
+import org.example.customeExceptions.InsufficientBalanceException;
 
 public class Customer {
     private BigDecimal balance;

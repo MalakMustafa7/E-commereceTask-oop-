@@ -1,6 +1,6 @@
  package org.example.service;
 
-import Interface.Shippable;
+import org.example.interfaces.Shippable;
 import java.math.BigDecimal;
 import java.util.List;
 

@@ -1,6 +1,6 @@
  package org.example.model;
 
-import Interface.Shippable;
+import org.example.interfaces.Shippable;
 import java.math.BigDecimal;
 import org.example.model.Product;
 

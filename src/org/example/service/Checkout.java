@@ -1,14 +1,14 @@
  package org.example.service;
 
 import org.example.service.ShippingService;
-import Interface.Shippable;
+import org.example.interfaces.Shippable;
 import java.math.BigDecimal;
 import org.example.model.Customer;
 import org.example.model.CartItem;
 import org.example.model.Cart;
 import org.example.model.Product;
 import java.util.List;
-import org.example.exception.InsufficientBalanceException;
+import org.example.customeExceptions.InsufficientBalanceException;
 
 public class Checkout {
     Cart cart;

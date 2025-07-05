@@ -1,12 +1,12 @@
  package org.example.model;
 
-import Interface.Shippable;
+import org.example.interfaces.Shippable;
 import java.math.BigDecimal;
 import org.example.model.Product;
 import java.util.ArrayList;
 import java.util.List;
-import org.example.exception.ExpiredProductException;
-import org.example.exception.OutOfStockException;
+import org.example.customeExceptions.ExpiredException;
+import org.example.customeExceptions.NoStockAvailableException;
 
 public class Cart {
    private List<CartItem> items = new ArrayList();
@@ -17,10 +17,10 @@ public class Cart {
     }
     public void addProduct(Product p,int quantity) {
         if(quantity>p.getQuantity()){
-            throw new OutOfStockException("Requested quantity exceeds available stock");
+            throw new NoStockAvailableException("Requested quantity exceeds available stock");
         }
         if(p.isExpired()){
-              throw new ExpiredProductException("Cannot add expired product to cart");
+              throw new ExpiredException("Cannot add expired product to cart");
         }
         CartItem item = new CartItem(p,quantity);
         items.add(item);

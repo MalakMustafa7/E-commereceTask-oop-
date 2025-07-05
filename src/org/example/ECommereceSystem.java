@@ -1,4 +1,4 @@
-package e.commerecesystem;
+ package org.example;
 
 import java.math.BigDecimal;
 import org.example.service.Checkout;
@@ -13,9 +13,9 @@ import org.example.model.Product;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import org.example.exception.ExpiredProductException;
-import org.example.exception.InsufficientBalanceException;
-import org.example.exception.OutOfStockException;
+import org.example.customeExceptions.ExpiredException;
+import org.example.customeExceptions.InsufficientBalanceException;
+import org.example.customeExceptions.NoStockAvailableException;
 
 public class ECommereceSystem {
     public static void main(String[] args) {
@@ -65,9 +65,9 @@ public class ECommereceSystem {
 
             try {
                 cart.addProduct(selected, qty);
-            } catch (ExpiredProductException e) {
+            } catch (ExpiredException e) {
                 System.out.println(e.getMessage());
-            } catch (OutOfStockException e) {
+            } catch (NoStockAvailableException e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -81,5 +81,4 @@ public class ECommereceSystem {
 
     }
     
-
 

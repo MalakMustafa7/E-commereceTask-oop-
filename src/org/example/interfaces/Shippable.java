@@ -1,4 +1,4 @@
- package Interface;
+ package org.example.interfaces;
 
 public interface Shippable {
     public String getName();
