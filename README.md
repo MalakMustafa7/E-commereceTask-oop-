@@ -49,7 +49,14 @@ The system simulates basic shopping flow including product definition, cart hand
 - `interface`: defines `Shippable` interface
 - `Main`: where the app runs and is tested
 
- 
+## Output Example
+![UML](https://raw.githubusercontent.com/MalakMustafa7/E-commereceTask-oop-/1d777708fe6a60b3803f0cd18b2ce37ca5000c47/photo_2025-07-05_13-28-00.jpg)
+
+## Notes
+- The app doesn't use a database, products are initialized directly in code.
+- Shipping fees are calculated as: `weight × 5`.
+- Designed with separation of concerns using packages.
+
 Customer Balance After Payment: $2400.0
 
 ##Notes
